@@ -1,7 +1,7 @@
 <?php
 date_default_timezone_set('Asia/Taipei');
 require('spreadsheet-reader/SpreadsheetReader.php');
-$finalHeaders = array('年度' => true);
+$finalHeaders = array('年度' => true, '月份' => true);
 $finalLines = array();
 foreach(glob(__DIR__ . '/*.ods') AS $odsFile) {
   $p = pathinfo($odsFile);
@@ -11,7 +11,7 @@ foreach(glob(__DIR__ . '/*.ods') AS $odsFile) {
   foreach ($Sheets as $Index => $Name){
     $Spreadsheet->ChangeSheet($Index);
     $colsIndex = false;
-    $header = array('年度');
+    $header = array('年度', '月份');
     foreach ($Spreadsheet as $Key => $Row) {
       if(false === $colsIndex) {
         foreach($Row AS $k => $v) {
@@ -26,7 +26,7 @@ foreach(glob(__DIR__ . '/*.ods') AS $odsFile) {
           }
         }
       } else {
-        $body = array($y);
+        $body = array($y, $Name);
         for($i = 0; $i < $colsIndex; $i++) {
           $body[] = $Row[$i];
         }
