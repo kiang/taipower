@@ -1,14 +1,17 @@
 <?php
 date_default_timezone_set('Asia/Taipei');
 require('spreadsheet-reader/SpreadsheetReader.php');
-$finalHeaders = $finalLines = array();
+$finalHeaders = array('年度' => true);
+$finalLines = array();
 foreach(glob(__DIR__ . '/*.ods') AS $odsFile) {
+  $p = pathinfo($odsFile);
+  $y = intval($p['filename']);
   $Spreadsheet = new SpreadsheetReader($odsFile);
   $Sheets = $Spreadsheet->Sheets();
   foreach ($Sheets as $Index => $Name){
     $Spreadsheet->ChangeSheet($Index);
     $colsIndex = false;
-    $header = array();
+    $header = array('年度');
     foreach ($Spreadsheet as $Key => $Row) {
       if(false === $colsIndex) {
         foreach($Row AS $k => $v) {
@@ -23,7 +26,7 @@ foreach(glob(__DIR__ . '/*.ods') AS $odsFile) {
           }
         }
       } else {
-        $body = array();
+        $body = array($y);
         for($i = 0; $i < $colsIndex; $i++) {
           $body[] = $Row[$i];
         }
@@ -36,6 +39,9 @@ foreach(glob(__DIR__ . '/*.ods') AS $odsFile) {
 $fh = fopen(__DIR__ . '/records.csv', 'w');
 fputcsv($fh, array_keys($finalHeaders));
 foreach($finalLines AS $finalLine) {
+  if(empty($finalLine['活動名稱']) || $finalLine['活動名稱'] === '合計') {
+    continue;
+  }
   $line = array();
   foreach($finalHeaders AS $hKey => $hVal) {
     if(isset($finalLine[$hKey])) {
