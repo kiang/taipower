@@ -156,19 +156,19 @@ google.maps.event.addDomListener(window, 'load', initialize);
 
 function ColorBar(value) {
     if (value == 0)
-        return "white"
+        return "#FFFFFF"
     else if (value <= 500)
-        return "green"
+        return "#FFFF99"
     else if (value <= 1000)
-        return "yellow"
+        return "#FFFF66"
     else if (value <= 1500)
-        return "orange"
+        return "#FFFF33"
     else if (value <= 2000)
-        return "red"
+        return "#FFFF00"
     else if (value <= 2500)
-        return "purple"
+        return "#CCCC00"
     else if (value <= 3000)
-        return "darkblue"
+        return "#999900"
     else
-        return "black"
+        return "#666600"
 }
