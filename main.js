@@ -33,6 +33,9 @@ var showArea = function (theButton, areaCode) {
                     break;
             }
         }
+        if(isNaN(count)) {
+          count = 0;
+        }
         value.setProperty('num', count);
         if (areaCode === key) {
             showFeature(value);
