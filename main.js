@@ -159,18 +159,18 @@ google.maps.event.addDomListener(window, 'load', initialize);
 function ColorBar(value) {
     if (value == 0)
         return "#FFFFFF"
-    else if (value <= 500)
-        return "#FFFF99"
     else if (value <= 1000)
         return "#FFFF66"
-    else if (value <= 1500)
-        return "#FFFF33"
     else if (value <= 2000)
         return "#FFFF00"
-    else if (value <= 2500)
-        return "#CCCC00"
     else if (value <= 3000)
-        return "#999900"
+        return "#FFBF00"
+    else if (value <= 4000)
+        return "#FF9F00"
+    else if (value <= 5000)
+        return "#FF3F00"
+    else if (value <= 6000)
+        return "#FF0000"
     else
-        return "#666600"
+        return "#CC0000"
 }
