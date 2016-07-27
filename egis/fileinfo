@@ -2,4 +2,5 @@
 用電戶數 - http://egis.moea.gov.tw/EGIS_FILE/EGP_SD/102_PowerUser.csv
 經濟三級發布區 - http://egis.moea.gov.tw/EGIS_FILE/EGP_SA/CODE3.rar
 
-code3.json - mapshaper -i encoding=utf8 CODE3/CODE3.shp -o format=topojson code3.json
+ogr2ogr -t_srs EPSG:4326 -s_srs EPSG:3826 -f "GeoJSON" -lco ENCODING=UTF-8 code3_o.json CODE3/CODE3.shp
+code3.json - mapshaper -i encoding=utf8 code3_o.json -o format=topojson code3.json
