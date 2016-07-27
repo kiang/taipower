@@ -44,8 +44,7 @@ var showArea = function (theButton, areaCode) {
         return {
             fillColor: color,
             fillOpacity: 0.6,
-            strokeColor: 'gray',
-            strokeWeight: 1
+            strokeWeight: 0
         }
     });
 };
