@@ -183,18 +183,12 @@ function showFeature(feature) {
     var areaKey = feature.getProperty('CODE1');
     var detail = '<h3>' + area + '</h3><div style="float:right;">單位：(千度)</div><table class="table table-boarded">';
     var targetHash = '#' + currentButton + '/' + areaKey;
-    if (loadedCity[currentCity]['data'][areaKey]) {
-        for (m in loadedCity[currentCity]['data'][areaKey]) {
-            detail += '<tr><td colspan="2">' + m + '</td></tr>';
+    if (power[areaKey]) {
             detail += '<tr>';
-            for (k in headers) {
-                if (loadedCity[currentCity]['data'][areaKey][m][k] === 'NULL') {
-                    loadedCity[currentCity]['data'][areaKey][m][k] = '';
-                }
-                detail += '<td>' + headers[k] + '</td><td>' + loadedCity[currentCity]['data'][areaKey][m][k] + '</td></tr>';
-            }
-            detail += '</tr>';
+        for (m in power[areaKey]) {
+            detail += '<td>' + m + '</td><td>' + power[areaKey][m] + '</td></tr>';
         }
+            detail += '</tr>';
     }
     detail += '</table>';
     $('#areaDetail').html(detail);
