@@ -103,7 +103,7 @@ var showCity = function (city) {
             map.setCenter({lat: 26.1565421, lng: 119.9237622});
             break;
         case '澎湖縣':
-            map.setCenter({lat: 26.1565421, lng: 119.9237622});
+            map.setCenter({lat: 23.6296693, lng: 119.4566426});
             break;
     }
     setTimeout(function () {
