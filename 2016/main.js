@@ -93,9 +93,15 @@ var showCity = function (city) {
         case '新竹市':
             map.setCenter({lat: 24.797534, lng: 120.968834});
             break;
-        case '嘉義市':
-            map.setCenter({lat: 23.479583, lng: 120.454789});
-            break;
+            case '嘉義市':
+                map.setCenter({lat: 23.479583, lng: 120.454789});
+                break;
+                case '金門縣':
+                    map.setCenter({lat: 24.4458382, lng: 118.3739171});
+                    break;
+                    case '連江縣':
+                        map.setCenter({lat: 26.1565421, lng: 119.9237622});
+                        break;
     }
     setTimeout(function () {
         $('body').removeClass("loading");
