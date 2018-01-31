@@ -29,5 +29,19 @@ foreach (glob(__DIR__ . '/raw/*.csv') AS $csvFile) {
         $result[$line[1]]['total'] += $line[2];
     }
 }
+$totalPool = array();
+foreach($result AS $d) {
+  $totalPool[] = $d['total'];
+}
+sort($totalPool);
+print_r(array(
+  $totalPool[9000],
+  $totalPool[18000],
+  $totalPool[27000],
+  $totalPool[36000],
+  $totalPool[45000],
+  $totalPool[54000],
+  $totalPool[63000],
+));
 
 file_put_contents(__DIR__ . '/2016.json', json_encode($result));

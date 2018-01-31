@@ -10,74 +10,74 @@ var layerStyle = new ol.style.Style({
 var colorPool = {
     a: new ol.style.Style({
         stroke: new ol.style.Stroke({
-            color: 'rgba(255,255,255,0.6)',
+            color: 'rgba(255,255,178,0.6)',
             width: 2
         }),
         fill: new ol.style.Fill({
-            color: 'rgba(255,255,255,0.3)'
+            color: 'rgba(255,255,178,0.7)'
         })
     }),
     b: new ol.style.Style({
         stroke: new ol.style.Stroke({
-            color: 'rgba(50,255,0,0.6)',
+            color: 'rgba(254,217,118,0.6)',
             width: 2
         }),
         fill: new ol.style.Fill({
-            color: 'rgba(50,255,0,0.3)'
+            color: 'rgba(254,217,118,0.7)'
         })
     }),
     c: new ol.style.Style({
         stroke: new ol.style.Stroke({
-            color: 'rgba(255,255,0,0.6)',
+            color: 'rgba(254,178,76,0.6)',
             width: 2
         }),
         fill: new ol.style.Fill({
-            color: 'rgba(255,255,0,0.3)'
+            color: 'rgba(254,178,76,0.7)'
         })
     }),
     d: new ol.style.Style({
         stroke: new ol.style.Stroke({
-            color: 'rgba(255,200,0,0.6)',
+            color: 'rgba(253,141,60,0.6)',
             width: 2
         }),
         fill: new ol.style.Fill({
-            color: 'rgba(255,200,0,0.3)'
+            color: 'rgba(253,141,60,0.7)'
         })
     }),
     e: new ol.style.Style({
         stroke: new ol.style.Stroke({
-            color: 'rgba(255,0,0,0.6)',
+            color: 'rgba(252,78,42,0.6)',
             width: 2
         }),
         fill: new ol.style.Fill({
-            color: 'rgba(255,0,0,0.3)'
+            color: 'rgba(252,78,42,0.7)'
         })
     }),
     f: new ol.style.Style({
         stroke: new ol.style.Stroke({
-            color: 'rgba(255,220,0,0.6)',
+            color: 'rgba(227,26,28,0.6)',
             width: 2
         }),
         fill: new ol.style.Fill({
-            color: 'rgba(255,220,0,0.3)'
+            color: 'rgba(227,26,28,0.7)'
         })
     }),
     g: new ol.style.Style({
         stroke: new ol.style.Stroke({
-            color: 'rgba(81,255,0,0.6)',
+            color: 'rgba(177,0,38,0.6)',
             width: 2
         }),
         fill: new ol.style.Fill({
-            color: 'rgba(81,255,0,0.3)'
+            color: 'rgba(177,0,38,0.7)'
         })
     }),
     h: new ol.style.Style({
         stroke: new ol.style.Stroke({
-            color: 'rgba(0,0,0,0.6)',
+            color: 'rgba(107,0,23,0.6)',
             width: 2
         }),
         fill: new ol.style.Fill({
-            color: 'rgba(0,0,0,0.3)'
+            color: 'rgba(107,0,23,0.7)'
         })
     })
 };
@@ -243,18 +243,18 @@ function onLayerClick(e) {
 
 function ColorBar(value) {
     if (value == 0)
-        return colorPool.a;
-    else if (value <= 50000)
-        return colorPool.b
-    else if (value <= 100000)
+      return colorPool.a;
+    else if (value <= 435255)
+      return colorPool.b;
+    else if (value <= 590521)
         return colorPool.c
-    else if (value <= 200000)
+    else if (value <= 745107)
         return colorPool.d
-    else if (value <= 300000)
+    else if (value <= 908059)
         return colorPool.e
-    else if (value <= 500000)
+    else if (value <= 1115873)
         return colorPool.f
-    else if (value <= 1000000)
+    else if (value <= 1456461)
         return colorPool.g
     else
         return colorPool.h
