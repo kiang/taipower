@@ -82,7 +82,7 @@ var colorPool = {
     })
 };
 var targetLayer, dataPower, selectedCounty, code2name = {};
-$.getJSON('2016.json', {}, function (d) {
+$.getJSON('data.json', {}, function (d) {
     dataPower = d;
 });
 
@@ -244,17 +244,17 @@ function onLayerClick(e) {
 function ColorBar(value) {
     if (value == 0)
       return colorPool.a;
-    else if (value <= 435255)
+    else if (value <= 325052)
       return colorPool.b;
-    else if (value <= 590521)
+    else if (value <= 584860)
         return colorPool.c
-    else if (value <= 745107)
+    else if (value <= 796970)
         return colorPool.d
-    else if (value <= 908059)
+    else if (value <= 1007446)
         return colorPool.e
-    else if (value <= 1115873)
+    else if (value <= 1237714)
         return colorPool.f
-    else if (value <= 1456461)
+    else if (value <= 1524760)
         return colorPool.g
     else
         return colorPool.h

@@ -1,0 +1,49 @@
+<?php
+
+$basePath = dirname(__DIR__);
+
+$result = array();
+foreach (glob($basePath . '/raw/*.csv') AS $csvFile) {
+    $fh = fopen($csvFile, 'r');
+    fgetcsv($fh, 2048);
+    /*
+     * Array
+      (
+      [0] => 10501
+      [1] => A0804-10-001
+      [2] => 1617.0
+      [3] => 008
+      [4] => 中和里
+      [5] => 10008040
+      [6] => 竹山鎮
+      [7] => 10008
+      [8] => 南投縣
+      )
+     */
+    while ($line = fgetcsv($fh, 2048)) {
+        $line[2] = intval($line[2]);
+        if (!isset($result[$line[1]])) {
+            $result[$line[1]] = array(
+                'total' => 0,
+            );
+        }
+        $result[$line[1]][$line[0]] = $line[2];
+        $result[$line[1]]['total'] += $line[2];
+    }
+}
+$totalPool = array();
+foreach($result AS $d) {
+  $totalPool[] = $d['total'];
+}
+sort($totalPool);
+print_r(array(
+  $totalPool[9000],
+  $totalPool[18000],
+  $totalPool[27000],
+  $totalPool[36000],
+  $totalPool[45000],
+  $totalPool[54000],
+  $totalPool[63000],
+));
+
+file_put_contents($basePath . '/data.json', json_encode($result));
